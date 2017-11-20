@@ -24,8 +24,8 @@ Prerequisites:
 
 # Lab scenario
 
-Attendees guide:
-https://github.com/palma21/k8slab
+**Attendees guide:
+https://github.com/palma21/k8slab**
 
 if you get stuck - its a really good idea to use this :)
 
