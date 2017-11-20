@@ -29,7 +29,7 @@ https://github.com/palma21/k8slab**
 
 if you get stuck - its a really good idea to use this :)
 
-https://github.com/palma21/k8slabproctor 
+https://github.com/palma21/k8slabproctor
 
 to get kubernetes dashboard up and running use:  
 kubectl proxy  
