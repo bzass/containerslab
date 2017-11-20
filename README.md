@@ -31,24 +31,31 @@ if you get stuck - its a really good idea to use this :)
 
 https://github.com/palma21/k8slabproctor 
 
-to get kubernetes dashboard up and running use:
-kubectl proxy
-127.0.0.1:8001
-add the following to the end: /                 
+to get kubernetes dashboard up and running use:  
+kubectl proxy  
+127.0.0.1:8001  
+add the following to the end: /     
+
+  
+            
+USE THIS WHEN YOU ARE USING AZURE FREE [update git]:    
+az acs create --orchestrator-type kubernetes --resource-group workshopno --name myK8SCluster --agent-count 1 --generate-ssh-keys --verbose  
  
-USE THIS WHEN YOU ARE USING AZURE FREE [update git]: 
-az acs create --orchestrator-type kubernetes --resource-group workshopno --name myK8SCluster --agent-count 1 --generate-ssh-keys --verbose
- 
-use this for if you cannot share your c drive:
+
+
+use this for if you cannot share your c drive:  
 https://blogs.msdn.microsoft.com/stevelasker/2016/06/14/configuring-docker-for-windows-volumes/
  
+
+
 Free version: remember to add following in the azure portal (in order to deploy containers services):
-microsoft.compute
-microsoft.ContainerService
-Microsoft.Storage
-Microsoft.network
- 
+microsoft.compute  
+microsoft.ContainerService  
+Microsoft.Storage  
+Microsoft.network  
+
 Free account does NOT work in West UK!
+
  
 Symantec AV protection can block kubectl get-credential command while running inside Linux sub system for Windows. Sudo apt-get update also fails. 
 
