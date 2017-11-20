@@ -59,6 +59,9 @@ Free account does NOT work in West UK!
  
 Symantec AV protection can block kubectl get-credential command while running inside Linux sub system for Windows. Sudo apt-get update also fails. 
 
+Advanced Kubernetes lab:
+https://github.com/tkubica12/kubernetes-demo
+
 # Contact
 
 Bartłomiej Zass, bzass@microsoft.com
