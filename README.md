@@ -3,8 +3,6 @@
 
 Prerequisites:
 
-* Own Azure Subscription with admin access, and ~8 free vCPU for DSv2 instances (https://docs.microsoft.com/en-us/azure/azure-supportability/resource-manager-core-quotas-request)
-
 * OS: Windows 10 / Linux / macOS; For Windows 7 users - create Azure VM with ubuntu and install docker there
 * Docker on local OS https://www.docker.com/community-edition#/download
 * Visual Studio Code https://code.visualstudio.com + extensions:
