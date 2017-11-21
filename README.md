@@ -15,7 +15,7 @@ Prerequisites:
     * Azure Account https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account
     * Azure CLI Tools https://marketplace.visualstudio.com/items?itemName=ms-vscode.azurecli
     * NuGet Package Manager https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
-* Azure CLI 2.0 (on Windows: https://aka.ms/InstallAzureCliWindows, OSX and Linux: https://azure.github.io/projects/clis/)
+* Azure CLI 2.0 (on Windows: https://aka.ms/InstallAzureCliWindows, OSX and Linux: https://azure.github.io/projects/clis/ or https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Optional
     * .NET Core 2.0 https://www.microsoft.com/net/download
     * Azure Storage Explorer https://azure.microsoft.com/en-us/features/storage-explorer
