@@ -30,7 +30,7 @@ az provider register -n Microsoft.Network
 Then remember to add `--agent-count 1` to az acs command:
 
 ```
-az group add -n YOUR_RESOURCE_GROUP -l westeurope
+az group create -n YOUR_RESOURCE_GROUP -l westeurope
 
 az acs create --orchestrator-type kubernetes --resource-group YOUR_RESOURCE_GROUP --name YOUR_CLUSTER_NAME --agent-count 1 --generate-ssh-keys --verbose  
 ```
