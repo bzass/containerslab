@@ -21,10 +21,10 @@
 To create ACS cluster on Azure Trial subscription, first register services:
 
 ```
-Microsoft.Compute  
-Microsoft.ContainerService  
-Microsoft.Storage  
-Microsoft.Network
+az provider register -n Microsoft.Compute  
+az provider register -n Microsoft.ContainerService  
+az provider register -n Microsoft.Storage  
+az provider register -n Microsoft.Network
 ```
 
 Then remember to add `--agent-count 1` to az acs command:
