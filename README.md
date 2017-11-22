@@ -17,8 +17,9 @@
     * NuGet Package Manager https://marketplace.visualstudio.com/items?itemName=jmrog.vscode-nuget-package-manager
 
 ## Note for Azure Trial subscriptions
-            
+
 To create ACS cluster on Azure Trial subscription, first register services:
+
 ```
 Microsoft.Compute  
 Microsoft.ContainerService  
