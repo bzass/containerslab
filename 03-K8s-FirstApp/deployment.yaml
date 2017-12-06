@@ -1,0 +1,36 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: vote-back-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vote-back
+    spec:
+      containers:
+      - name: vote-back
+        image: library/redis
+        ports:
+        - containerPort: 6379
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: vote-front-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: vote-front
+    spec:
+      containers:
+      - name: vote-front
+        image: microsoft/azure-vote-front:redis-v2
+        ports:
+        - containerPort: 80
+        env:
+        - name: REDIS
+          value: vote-back-service

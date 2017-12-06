@@ -1,0 +1,4 @@
+apiVersion: v1
+description: A Helm chart for voting app
+name: myvoteapp
+version: 0.1.0

@@ -1,0 +1,17 @@
+#az ad sp create-for-rbac --name acsK8sCluster --role Contributor --scopes /subscriptions/c0e6012b-7f06-4b5d-989f-60781243e3ac/resourceGroups/acsK8sCluster
+{
+  "appId": "fbff19fc-6e68-4708-bfcd-fd2070a4b977",
+  "displayName": "acsK8sCluster",
+  "name": "http://acsK8sCluster",
+  "password": "b4f7fd96-7872-4e90-b044-d562abea43d9",
+  "tenant": "be14573b-436e-4c52-80e1-14b9a16b7907"
+}
+
+#az ad sp create-for-rbac --name aksK8sCluster --role Contributor --scopes /subscriptions/c0e6012b-7f06-4b5d-989f-60781243e3ac/resourceGroups/aksK8sCluster
+{
+  "appId": "95ee5283-4cf1-422c-9445-1c0bf9d84dcb",
+  "displayName": "aksK8sCluster",
+  "name": "http://aksK8sCluster",
+  "password": "76634776-f2e2-42c5-a435-4eca6f497e95",
+  "tenant": "be14573b-436e-4c52-80e1-14b9a16b7907"
+}

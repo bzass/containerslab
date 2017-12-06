@@ -1,0 +1,16 @@
+{
+  "appId": "a75f3fa6-7956-4245-b9c2-edf19c7147af",
+  "displayName": "bzass20171206",
+  "name": "http://bzass20171206",
+  "password": "1455c717-7c1e-4d7f-9c89-62712a9a18b4",
+  "tenant": "be14573b-436e-4c52-80e1-14b9a16b7907"
+}
+
+az acr login --name bzass20171206 --username a75f3fa6-7956-4245-b9c2-edf19c7147af --password 1455c717-7c1e-4d7f-9c89-62712a9a18b4
+
+sudo docker pull wordpress:4.8-apache
+sudo docker tag wordpress:4.8-apache bzass20171206.azurecr.io/wordpress:4.8-apache
+sudo docker push bzass20171206.azurecr.io/wordpress:4.8-apache
+sudo docker pull mysql:5.6
+sudo docker tag mysql:5.6 bzass20171206.azurecr.io/mysql:5.6
+sudo docker push bzass20171206.azurecr.io/mysql:5.6

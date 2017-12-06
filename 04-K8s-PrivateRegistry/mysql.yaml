@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-mysql-test
+  labels:
+    app: wordpress-test
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: wordpress-test
+    tier: mysql-test
+  clusterIP: None
+
+---
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: wordpress-mysql-test
+  labels:
+    app: wordpress-test
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: wordpress-test
+        tier: mysql-test
+    spec:
+      containers:
+      - image: <initialsYYYYMMDD>.azurecr.io/mysql:5.6
+        name: mysql-test
+        env:
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-pass-test
+              key: password
+        ports:
+        - containerPort: 3306
+          name: mysql-test
+      imagePullSecrets:
+      - name: acrsecret

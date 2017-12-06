@@ -1,0 +1,48 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "name": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "skuTier": {
+            "type": "string"
+        },
+        "skuName": {
+            "type": "string"
+        },
+        "skuCapacity": {
+            "type": "string"
+        },
+        "queueName": {
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "apiVersion": "2017-04-01",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "type": "Microsoft.ServiceBus/namespaces",
+            "sku": {
+                "name": "[parameters('skuTier')]",
+                "tier": "[parameters('skuTier')]",
+                "capacity": "[parameters('skuCapacity')]"
+            },
+            "resources": [{
+                "apiVersion": "2017-04-01",
+                "name": "[parameters('queueName')]",
+             "type": "Queues",
+                "dependsOn": [
+                    "[concat('Microsoft.ServiceBus/namespaces/', parameters('name'))]"
+                ],
+                "properties": {
+                    "path": "[parameters('queueName')]"
+                }
+            }]
+        }
+    ]
+}
