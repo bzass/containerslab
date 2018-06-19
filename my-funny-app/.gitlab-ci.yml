@@ -1,0 +1,31 @@
+before_script:
+  - docker info
+  - docker version
+  
+job_image:
+  script:
+    - d=`date +%y%m%d%H%M%S`
+    - pw=`cat /home/gitlab-runner/password`
+    - ctroot=`cat /home/gitlab-runner/DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE`
+    - ctrepo=`cat /home/gitlab-runner/DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE`
+    - export DOCKER_CONTENT_TRUST=1
+    - export DOCKER_CONTENT_TRUST_ROOT_PASSPHRASE=$ctroot
+    - export DOCKER_CONTENT_TRUST_REPOSITORY_PASSPHRASE=$ctrepo
+    - echo $d
+    - docker build -t my-funny-app:$d .
+    - echo "Starting with CI Pipeline..."
+    - docker tag my-funny-app:$d andreasl-demo-dtr-lb-80c218789f27e535.elb.eu-central-1.amazonaws.com/docker/my-funny-app:$d
+    - docker tag my-funny-app:$d andreasl-demo-dtr-lb-80c218789f27e535.elb.eu-central-1.amazonaws.com/docker/my-funny-app:latest
+    - docker images
+    - docker login andreasl-demo-dtr-lb-80c218789f27e535.elb.eu-central-1.amazonaws.com -u ci-pipeline -p $pw
+    - docker push andreasl-demo-dtr-lb-80c218789f27e535.elb.eu-central-1.amazonaws.com/docker/my-funny-app:$d
+    - docker push andreasl-demo-dtr-lb-80c218789f27e535.elb.eu-central-1.amazonaws.com/docker/my-funny-app:latest
+    - echo "Starting with CD Pipeline..."
+    - cd /home/gitlab-runner/bundle
+    - eval $(<env.sh)
+    - docker version
+    - sed "s/latest/$d/g" /home/gitlab-runner/my-funny-app.yml
+    - sed "s/latest/$d/g" /home/gitlab-runner/my-funny-app.yml > /home/gitlab-runner/my-funny-app-$d.yml
+    - docker stack deploy --compose-file /home/gitlab-runner/my-funny-app-$d.yml my-funny-app
+    - docker service ls
+    - docker stack ps my-funny-app
