@@ -44,7 +44,7 @@ az acs create --orchestrator-type kubernetes --resource-group YOUR_RESOURCE_GROU
 ```
 
 
-## Lab scenario
+## Resources
 
 **Attendees guide:
 https://github.com/palma21/k8slab**
@@ -53,6 +53,11 @@ if you get stuck - its a really good idea to use: https://github.com/palma21/k8s
 
 Advanced Kubernetes lab:
 https://github.com/tkubica12/kubernetes-demo
+
+https://github.com/deis-proserv/trex
+https://github.com/kubernetes-up-and-running/examples
+
+https://github.com/automatecloud/docker-ee-demos
 
 ## Notes
 
